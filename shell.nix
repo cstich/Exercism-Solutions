@@ -13,6 +13,10 @@ in pkgs.mkShell {
 
     buildInputs = [
       rust
+
+      pkgs.cmake
+      pkgs.evcxr
+      pkgs.jupyter
       
       unstable.clippy
       unstable.rustfmt
@@ -28,5 +32,7 @@ in pkgs.mkShell {
       export MAGIC_DB=${pkgs.file}/share/misc/magic.mgc;
 
       exercism configure --token=6bbd960a-851c-43e5-9052-014e38e76f04 --workspace=/home/christoph/Projects/exercism/
+
+      {pkgs.evcxr}/bin/evcxr_jupyter --install
     '';
 }
